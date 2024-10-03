@@ -1,0 +1,119 @@
+﻿
+
+mysql> create database project;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use project;
+Database changed
+
+mysql> CREATE TABLE USER
+    -> (
+    -> UserID int(10) not null,
+    -> FirstName varchar(40) not null,
+    -> LastName varchar(40) not null,
+    -> Phone varchar(15) not null,
+    -> Email varchar(100) not null,
+    -> StreetAddress varchar(200) not null,
+    -> Password varchar(40) not null,
+    -> constraint USER_PK primary key (UserID) );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE REQUEST
+    -> (
+    -> UserID int(10) not null,
+    -> Location BOOLEAN not null,
+    -> Jobs BOOLEAN not null,
+    -> Message varchar(4000) not null,
+    -> constraint REQUEST_PK primary key (UserID),
+    -> constraint REQUEST_FK foreign key (UserID) references USER(UserID) );
+Query OK, 0 rows affected (0.02 sec)
+
+
+mysql> CREATE TABLE APPOINTMENT
+    -> (
+    -> UserID int(10) not null,
+    -> Date DATE not null,
+    -> Description varchar(4000) not null,
+    -> Estimate DECIMAL(8,2) not null,
+    -> constraint APPOINTMENT_PK primary key (UserID),
+    -> constraint APPOINTMENT_FK foreign key (UserID) references USER(UserID) );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE REVIEW
+    -> (
+    -> UserID int(10) not null,
+    -> Description varchar(4000) not null,
+    -> Rating int(1) not null,
+    -> Pinned BOOLEAN not null,
+    -> constraint REVIEW_PK primary key (UserID),
+    -> constraint REVIEW_FK foreign key (UserID) references USER(UserID) );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_project |
++-------------------+
+| APPOINTMENT       |
+| REQUEST           |
+| REVIEW            |
+| USER              |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> desc USER;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| UserID        | int(10)      | NO   | PRI | NULL    |       |
+| FirstName     | varchar(40)  | NO   |     | NULL    |       |
+| LastName      | varchar(40)  | NO   |     | NULL    |       |
+| Phone         | varchar(15)  | NO   |     | NULL    |       |
+| Email         | varchar(100) | NO   |     | NULL    |       |
+| StreetAddress | varchar(200) | NO   |     | NULL    |       |
+| Password      | varchar(40)  | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+mysql> desc APPOINTMENT;
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| UserID      | int(10)       | NO   | PRI | NULL    |       |
+| Date        | date          | NO   |     | NULL    |       |
+| Description | varchar(4000) | NO   |     | NULL    |       |
+| Estimate    | decimal(8,2)  | NO   |     | NULL    |       |
++-------------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc REVIEW;
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| UserID      | int(10)       | NO   | PRI | NULL    |       |
+| Description | varchar(4000) | NO   |     | NULL    |       |
+| Rating      | int(1)        | NO   |     | NULL    |       |
+| Pinned      | tinyint(1)    | NO   |     | NULL    |       |
++-------------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> decs REQUEST;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+decs REQUEST' at line 1
+mysql> desc REQUEST;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| UserID   | int(10)       | NO   | PRI | NULL    |       |
+| Location | tinyint(1)    | NO   |     | NULL    |       |
+| Jobs     | tinyint(1)    | NO   |     | NULL    |       |
+| Message  | varchar(4000) | NO   |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> quit
+Bye
+PS C:\Users\student> stop-transcript
+**********************
+Windows PowerShell transcript end
+End time: 20241003121631
+**********************
