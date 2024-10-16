@@ -4,7 +4,7 @@ use project;
 
 CREATE TABLE USER
 (
-UserID int(10) not null,
+UserID varchar(23) not null,
 FirstName varchar(40) not null,
 LastName varchar(40) not null,
 Phone varchar(15) not null,
