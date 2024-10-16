@@ -2,27 +2,32 @@
 <body>
     <p class="auto-style"><strong>Answer the questions and get a quote quick</strong></p>
 <form  action="quote.php" method="POST">
-    What service(s) do you require?
+
     <br>
-    <input type="checkbox" name = "powerwash">Powerwashing<br>
-    <input type="checkbox" name = "paint">Painting<br>
-    <input type="checkbox" name = "drywall">Drywalling<br>
+    First Name <input name="first_name" type="text">
     <br>
-    Please provide a decription of the work you need completed?
+    Last Name <input name="last_name" type="text">
     <br>
-    <input name="job_description" type="text">
+    Email <input name="email" type="text">
     <br>
-    <br>
-    <br>
-    First Name <input name="first_name" type="text">    Last Name <input name="last_name" type="text">
-    <br>
-    <br>
-    Email <input name="email" type="text">     Phone Number <input name="telenumb" type="text">
-    <br>
+    Phone Number <input name="phone" type="text">
     <br>
     Address <input name="address" type="text">
     <br>
     <br>
+    
+    What service(s) do you require?
+    <br>
+    <input type="checkbox" name="powerwash">Powerwashing<br>
+    <input type="checkbox" name="paint">Painting<br>
+    <input type="checkbox" name="drywall">Drywalling<br>
+    <br>
+    
+    Please provide a decription of the work you need completed.
+    <br>
+    <input name="description" type="text">
+    <br>
+    
     <input name="QUOTE_SUBMIT" type="submit" value="Submit">
 </form>
 
