@@ -18,17 +18,22 @@ if ($conn->connect_error) {
 $id = uniqid();
 $fname = $_POST["first_name"];
 $lname = $_POST["last_name"];
+$date = date('Y-m-d');
 $email = $_POST["email"];
 $phone = $_POST["phone"];
 $address = $_POST["address"];
-$pwsh = $_POST["powerwash"];
-$paint = $_POST["paint"];
-$drwl = $_POST["drywall"];
+$pwsh = isset($_POST["powerwash"]) ? 1 : 0;
+$paint = isset($_POST["paint"]) ? 1 : 0;
+$drwl = isset($_POST["drywall"]) ? 1 : 0;
 $desc = $_POST["description"];
 
 //Set up SQL query
-$sql = "INSERT INTO USER (UserID, FirstName, LastName, Phone, Email, StreetAddress) 
-		VALUES ('$id', '$fname', '$lname', '$phone', '$email', 'address')";
+$sql = "INSERT INTO REQUEST (RequestID, FirstName, LastName, RequestDate, 
+							 Phone, Email, Location,
+							 Powerwashing, Painting, Drywall, Description) 
+		VALUES ('$id', '$fname', '$lname', '$date',
+				'$phone', '$email', '$address',
+				'$pwsh', '$paint', '$drwl', '$desc')";
 
 //Run SQL query
 if ($conn->query($sql) === TRUE) {
