@@ -4,7 +4,7 @@
 <form  action="quote.php" method="POST">
 
     <br>
-    First Name <input name="first_name" type="text">
+    First Name <input name="first_name" type="text" required>
     <br>
     Last Name <input name="last_name" type="text">
     <br>
@@ -18,10 +18,9 @@
     
     What service(s) do you require?
     <br>
-    <input type="checkbox" name="powerwash">Powerwashing<br>
-    <input type="checkbox" name="paint">Painting<br>
-    <input type="checkbox" name="drywall">Drywalling<br>
-    <br>
+    <input type="checkbox" name="powerwash" value="1"> Powerwashing<br>
+	<input type="checkbox" name="paint" value="1"> Painting<br>
+	<input type="checkbox" name="drywall" value="1"> Drywall    <br><br>
     
     Please provide a decription of the work you need completed.
     <br>
