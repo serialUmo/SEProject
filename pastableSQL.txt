@@ -1,36 +1,31 @@
 create database project;
-
 use project;
-
-CREATE TABLE USER
-(
-UserID varchar(23) not null,
-FirstName varchar(40) not null,
-LastName varchar(40) not null,
-Phone varchar(15) not null,
-Email varchar(100) not null,
-StreetAddress varchar(200) not null,
-constraint USER_PK primary key (UserID) );
-
 
 CREATE TABLE REQUEST
 (
-UserID varchar(23) not null,
-Location BOOLEAN not null,
-Jobs BOOLEAN not null,
-Message varchar(4000) not null,
-constraint REQUEST_PK primary key (UserID),
-constraint REQUEST_FK foreign key (UserID) references USER(UserID) );
+RequestID varchar(23) not null,
+FirstName VARCHAR(255) not null,
+LastName VARCHAR(255) not null,
+RequestDate DATE not null,
+Phone VARCHAR(15),
+Email VARCHAR(255),
+Location VARCHAR(255) not null,
+Powerwashing BOOLEAN,
+Painting BOOLEAN,
+Drywall BOOLEAN,
+Description varchar(4000) not null,
+constraint REQUEST_PK primary key (RequestID),
 
 
 CREATE TABLE APPOINTMENT
 (
-UserID varchar(23) not null,
-Date DATE not null,
-Description varchar(4000) not null,
-Estimate DECIMAL(8,2) not null,
-constraint APPOINTMENT_PK primary key (UserID),
-constraint APPOINTMENT_FK foreign key (UserID) references USER(UserID) );
+AppointmentID varchar(23) not null,
+RequestID varchar(23) not null,
+AppointmentDate DATE not null,
+Cost DECIMAL(8,2) not null,
+Description varchar(4000),
+constraint APPOINTMENT_PK primary key (AppointmentID),
+constraint APPOINTMENT_FK foreign key (RequestID) references REQUEST(RequestID) );
 
 
 CREATE TABLE REVIEW
