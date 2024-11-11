@@ -13,6 +13,7 @@ Location VARCHAR(255) not null,
 Powerwashing BOOLEAN,
 Painting BOOLEAN,
 Drywall BOOLEAN,
+Picture BLOB,
 Description varchar(4000) not null,
 constraint REQUEST_PK primary key (RequestID) );
 
