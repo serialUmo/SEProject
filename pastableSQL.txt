@@ -38,6 +38,13 @@ Pinned BOOLEAN not null,
 constraint REVIEW_PK primary key (UserID),
 constraint REVIEW_FK foreign key (UserID) references USER(UserID) );
 
+CREATE TABLE ADMIN
+(
+AdminID varchar(23) not null,
+Username varchar(20) not null,
+Password varchar(20) not null
+constaint ADMIN_PK primary key (AdminID)
+);
 
 show tables;
 +-------------------+
