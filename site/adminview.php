@@ -79,6 +79,15 @@ if ($conn->connect_error) {
 		        echo "<td>" . ($row['Drywall'] ? 'X' : '') . "</td>";
 		        echo "<td>" . $row['Description'] . "</td>";
 		        echo "</tr>";
+
+		    	// Email and Take Request Buttons
+		    	echo "<td>
+		                <a href='mailto:" . $row['Email'] . "'><button>Email</button></a>
+		                <form action='take_request.php' method='POST' style='display:inline;'>
+				    <input type='hidden' name='RequestID' value='" . $row['RequestID'] . "'>
+				    <button type='submit'>Take Request</button>
+	                	</form>
+              		</td>";
     }        } else {
             echo "<tr><td colspan='9'>No requests found</td></tr>";
         }
