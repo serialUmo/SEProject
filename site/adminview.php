@@ -1,4 +1,13 @@
 <?php
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php"); // Redirect to login if not logged in
+    exit();
+}
+<a href="logout.php">Logout</a>
+
 // Connect to the database and fetch the request data
 $servername = "localhost";
 $username = "root";
