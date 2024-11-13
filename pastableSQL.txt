@@ -42,7 +42,7 @@ CREATE TABLE ADMIN
 (
 AdminID varchar(23) not null,
 Username varchar(20) not null,
-Password varchar(20) not null
+Password varchar(20) not null,
 constraint ADMIN_PK primary key (AdminID)
 );
 
