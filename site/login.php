@@ -2,10 +2,10 @@
 session_start(); // Start a session to manage logged-in state
 
 // Database connection settings
-$servername = "localhost";
-$username = "your_db_username";
-$password = "your_db_password";
-$dbname = "your_db_name";
+$servername = "127.0.0.1";
+$username = "root";
+$password = "root";
+$dbname = "project";
 
 // Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -20,7 +20,7 @@ $user = $_POST['username'];
 $pass = $_POST['password'];
 
 // Query to find the user
-$sql = "SELECT * FROM users WHERE username = ?";
+$sql = "SELECT * FROM ADMIN WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $user);
 $stmt->execute();
@@ -31,16 +31,16 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     
     // Use password_verify if passwords are hashed
-    if ($row['password'] == $pass) { // Replace with password_verify($pass, $row['password']) for hashed passwords
+    if ($row['Password'] === $pass) { // Replace with password_verify($pass, $row['password']) for hashed passwords
         // Set session variables for logged-in state
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $user;
         
         // Redirect to admin page
-        header("Location: admin_view.php");
+        header("Location: adminview.php");
         exit();
     } else {
-        echo "Invalid credentials.";
+        echo "Wrong password.";
     }
 } else {
     echo "Invalid credentials.";
