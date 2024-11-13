@@ -26,7 +26,7 @@ $pwsh = isset($_POST["powerwash"]) ? 1 : 0;
 $paint = isset($_POST["paint"]) ? 1 : 0;
 $drwl = isset($_POST["drywall"]) ? 1 : 0;
 $desc = $_POST["description"];
-$pic = $_POST["image"];
+$pic = isset($_POST["image"]) ? $_POST["image"] : NULL;
 
 //Sanitize form answers
 $sanitized_id = mysqli_real_escape_string($conn, $id);
@@ -41,11 +41,11 @@ $sanitized_desc = mysqli_real_escape_string($conn, $desc);
 
 //Set up SQL query
 $sql = "INSERT INTO REQUEST (RequestID, FirstName, LastName, RequestDate, 
-							 Phone, Email, Location,
-							 Powerwashing, Painting, Drywall, Description, Picture) 
-		VALUES ('$sanitized_id', '$sanitized_fname', '$sanitized_lname', '$sanitized_date',
-				'$sanitized_phone', '$sanitized_email', '$sanitized_address',
-				'$pwsh', '$paint', '$drwl', '$sanitized_desc', $pic)";
+	 Phone, Email, Location,
+	 Powerwashing, Painting, Drywall, Description) 
+	VALUES ('$sanitized_id', '$sanitized_fname', '$sanitized_lname', '$sanitized_date',
+			'$sanitized_phone', '$sanitized_email', '$sanitized_address',
+			'$pwsh', '$paint', '$drwl', '$sanitized_desc')";
 
 //Run SQL query
 if ($conn->query($sql) === TRUE) {
