@@ -26,14 +26,26 @@ $pwsh = isset($_POST["powerwash"]) ? 1 : 0;
 $paint = isset($_POST["paint"]) ? 1 : 0;
 $drwl = isset($_POST["drywall"]) ? 1 : 0;
 $desc = $_POST["description"];
+$pic = $_POST["image"];
+
+//Sanitize form answers
+$sanitized_id = mysqli_real_escape_string($conn, $id);
+$sanitized_fname = mysqli_real_escape_string($conn, $fname);
+$sanitized_lname = mysqli_real_escape_string($conn, $lname);
+$sanitized_date = mysqli_real_escape_string($conn, $date);
+$sanitized_email = mysqli_real_escape_string($conn, $email);
+$sanitized_phone = mysqli_real_escape_string($conn, $phone);
+$sanitized_address = mysqli_real_escape_string($conn, $address);
+$sanitized_desc = mysqli_real_escape_string($conn, $desc);
+
 
 //Set up SQL query
 $sql = "INSERT INTO REQUEST (RequestID, FirstName, LastName, RequestDate, 
 							 Phone, Email, Location,
-							 Powerwashing, Painting, Drywall, Description) 
-		VALUES ('$id', '$fname', '$lname', '$date',
-				'$phone', '$email', '$address',
-				'$pwsh', '$paint', '$drwl', '$desc')";
+							 Powerwashing, Painting, Drywall, Description, Picture) 
+		VALUES ('$sanitized_id', '$sanitized_fname', '$sanitized_lname', '$sanitized_date',
+				'$sanitized_phone', '$sanitized_email', '$sanitized_address',
+				'$pwsh', '$paint', '$drwl', '$sanitized_desc', $pic)";
 
 //Run SQL query
 if ($conn->query($sql) === TRUE) {
