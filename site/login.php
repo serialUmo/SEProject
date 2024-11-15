@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
         $_SESSION['username'] = $user;
         
         // Redirect to admin page
-        header("Location: adminview.php");
+        header("Location: adminoptions.php");
         exit();
     } else {
         echo "Wrong password.";
