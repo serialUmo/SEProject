@@ -9,8 +9,8 @@
 ?>
 
 <html>
-<body>
-<a href="adminview.php">Manage Requests and Appointments</a>
-<a href="admingallery.php">Manage Gallery</a>
-</body>
+  <body>
+    <a href="adminview.php">Manage Requests and Appointments</a>
+    <a href="admingallery.php">Manage Gallery</a>
+  </body>
 </html>
