@@ -1,41 +1,123 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Quote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            color: #004d40;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="file"], textarea {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #004d40;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+            border-color: #00796b;
+            outline: none;
+        }
+
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+            margin-left: 5px;
+            color: #004d40;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #004d40;
+        }
+
+        .description {
+            color: #00695c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 <body>
-    <p class="auto-style"><strong>Answer the questions and get a quote quick</strong></p>
-<form  action="quote.php" method="POST">
+    <div class="container">
+        <h1>Get Your Quote</h1>
+        <p class="description">Answer the questions below to receive a quick and personalized quote!</p>
+        <form action="quote.php" method="POST" enctype="multipart/form-data">
+            <label for="first_name">First Name</label>
+            <input name="first_name" type="text" id="first_name" required>
 
-    <br>
-    First Name <input name="first_name" type="text" required>
-    <br>
-    Last Name <input name="last_name" type="text">
-    <br>
-    Email <input name="email" type="text">
-    <br>
-    Phone Number <input name="phone" type="text">
-    <br>
-    Address <input name="address" type="text">
-    <br>
-    <br>
-    
-    What service(s) do you require?
-    <br>
-    <input type="checkbox" name="powerwash" value="1"> Powerwashing<br>
-	<input type="checkbox" name="paint" value="1"> Painting<br>
-	<input type="checkbox" name="drywall" value="1"> Drywall    <br><br>
-    
-    Please provide a decription of the work you need completed.
-    <br>
-    <input name="description" type="text">
-    <br>
-     
-    <br>
-    Please provide a photo of the area you would like work done.
-    <br>
-    <input type="file" id="img" name="img" accept="image/*">
-    <br>
+            <label for="last_name">Last Name</label>
+            <input name="last_name" type="text" id="last_name">
 
-    <br>
-    <input name="QUOTE_SUBMIT" type="submit" value="Submit">
-</form>
+            <label for="email">Email</label>
+            <input name="email" type="email" id="email" required>
 
+            <label for="phone">Phone Number</label>
+            <input name="phone" type="tel" id="phone">
+
+            <label for="address">Address</label>
+            <input name="address" type="text" id="address">
+
+            <label>What service(s) do you require?</label>
+            
+            <label for="powerwash"><input type="checkbox" id="powerwash" name="powerwash" value="1">Powerwashing</label>
+            <label for="paint"><input type="checkbox" id="paint" name="paint" value="1">Painting</label>
+            <label for="drywall"><input type="checkbox" id="drywall" name="drywall" value="1">Drywall</label>
+            <br><br>
+
+            <label for="description">Please provide a description of the work you need completed.</label>
+            <textarea name="description" id="description" rows="4"></textarea>
+
+            <label for="img">Please provide a photo of the area where work is needed.</label>
+            <input type="file" id="img" name="img" accept="image/*">
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
