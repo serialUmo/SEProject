@@ -75,38 +75,28 @@ a:visited {
 	margin-left: 0px;
 }
 
-img{
-    width: 50%;
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 2fr));
+    align-items: center;
+    gap: 15px
+    padding 20px;
 }
 
-.container {
-    position:relative;
+.gallery-item{
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-  
-.mySlides {
-    display: none;
+.gallery-item img{
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.prev,
-.next {
-  cursor: pointer;
-  position: fixed;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color:black;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.next{
-  right: 0;
-  border-radius: 3px 0 0 3px;
+.gallery-item:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease;
 }
 
 .text-style{
