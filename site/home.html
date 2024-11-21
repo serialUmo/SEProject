@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>HomePage</title>
+    <style>
+        body {
+            background-color: #E0F7FA;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .navbar {
+            background-color: #636363;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            color: #007bff;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .overlay-container {
+            position: absolute;
+            top: 40%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column; 
+            gap: 15px; 
+            text-align: center;
+        }
+
+        .text-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 30px; 
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            width: auto;
+        }
+
+        .text-overlay h1 {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .button {
+            margin-top: 15px; 
+            padding: 10px 20px; 
+            background-color: #ff5722; 
+            color: white; 
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-decoration: none; 
+            display: inline-block;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #e64a19; 
+        }
+
+        .call-box {
+            background-color: #ffffff; 
+            color: #000000;
+            padding: 10px 20px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+            width: auto;
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .call-box a {
+            color: #000000;
+            text-decoration: none; 
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .call-box:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px; 
+            border: 1px solid black;
+            font-size: 18px;
+        }
+
+        .contact-form {
+            width: 70%; 
+        }
+
+        .contact-title {
+            font-size: 28px; 
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .input-field {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px; 
+            padding: 15px;
+            font-size: 16px; 
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background-color: white;
+            color: black;
+            padding: 15px 30px; 
+            border: 1px solid black;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .submit-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 30%;
+        }
+
+        .social-icons img {
+            width: 50px; 
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .social-icons img:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img alt="Header Logo" height="164" src="Images/New%20Project%20(9).png" width="948" />
+    </div>
+    <div class="navbar">
+        <span class="auto-style1">
+            <a href="index.html" class="auto-style6"><span class="auto-style4">Home Page</span></a>
+            <a href="aboutus.html" class="auto-style6"><span class="auto-style4">About Us</span></a>
+            <a href="quoteform.html" class="auto-style6"><span class="auto-style4">Get Your Free Quote!</span></a>
+            <a href="gallery.html" class="auto-style6"><span class="auto-style4">Gallery</span></a>
+            <a href="contact.html" class="auto-style6"><span class="auto-style4">Contact Us</span></a>
+        </span>
+        <span class="auto-style3"><strong>609-224-7185</strong></span>
+    </div>
+    <div class="banner">
+        <img alt="Homepage Banner" src="Images/Homepage_Image-transformed.png" />
+        <div class="overlay-container">
+            <div class="text-overlay">
+                <h1>The <strong>BEST</strong> Painting and Powerwashing Service in South Jersey</h1>
+                <a href="quoteform.html" class="button">Get Your Free Quote!</a>
+                <div class="call-box" style="width: 156px;">
+                    <a href="tel:6092247185">Call: 609-224-7185</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <div class="contact-form">
+            <div class="contact-title">CONTACT US</div>
+            <div class="contact-details">
+                <p>Phone: XXX-XXX-XXXX</p>
+                <p>Email: contact@yourwebsite.com</p>
+            </div>
+            <form action="submit_contact.php" method="post">
+                <input type="email" class="input-field" name="email" placeholder="Your Email" required />
+                <textarea class="input-field" name="message" placeholder="Message" rows="5" required></textarea>
+                <input type="submit" class="submit-btn" value="Submit" />
+            </form>
+        </div>
+        <div class="social-icons">
+            &nbsp;&nbsp;
+        </div>
+    </div>
+</body>
+
+</html>
