@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>HomePage</title>
+    <style>
+        body {
+            background-color: #E0F7FA;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .navbar {
+            background-color: #636363;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            color: #007bff;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .overlay-container {
+            position: absolute;
+            top: 40%; /* Relative to the image height */
+            left: 50%; /* Centered horizontally */
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column; /* Stack vertically */
+            gap: 15px; /* Space between elements */
+            text-align: center;
+        }
+
+        .text-overlay {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+            color: white;
+            padding: 20px 30px; /* Padding for the text bubble */
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            max-width: 300px;
+            width: auto;
+        }
+
+        .text-overlay h1 {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .button {
+            margin-top: 15px; /* Space above the button */
+            padding: 10px 20px; /* Button padding */
+            background-color: #ff5722; /* Orange background */
+            color: white; /* White text color */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            text-align: center;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-decoration: none; /* Remove underline */
+            display: inline-block;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #e64a19; /* Slightly darker orange on hover */
+        }
+
+        .call-box {
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
+            padding: 10px 20px; /* Padding for the call box */
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            width: auto;
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 5px; /* Add spacing between button and call box */
+        }
+
+        .call-box a {
+            color: #000000;
+            text-decoration: none; /* Remove underline */
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .call-box:hover {
+            background-color: #f0f0f0; /* Slightly darker white on hover */
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+            border: 1px solid black;
+        }
+
+        .contact-form {
+            width: 60%;
+        }
+
+        .contact-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: 1px solid black;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .submit-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 30%;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .social-icons img:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img alt="Header Logo" height="164" src="Images/New%20Project%20(9).png" width="948" />
+    </div>
+    <div class="navbar">
+        <span class="auto-style1">
+            <a href="index.html" class="auto-style6"><span class="auto-style4">Home Page</span></a>
+            <a href="aboutus.html" class="auto-style6"><span class="auto-style4">About Us</span></a>
+            <a href="quoteform.html" class="auto-style6"><span class="auto-style4">Get Your Free Quote!</span></a>
+            <a href="gallery.html" class="auto-style6"><span class="auto-style4">Gallery</span></a>
+            <a href="contact.html" class="auto-style6"><span class="auto-style4">Contact Us</span></a>
+        </span>
+        <span class="auto-style3"><strong>609-224-7185</strong></span>
+    </div>
+    <div class="banner">
+        <img alt="Homepage Banner" src="Images/Homepage_Image-transformed.png" />
+        <div class="overlay-container">
+            <div class="text-overlay">
+                <h1>The <strong>BEST</strong> Painting and Powerwashing Service in South Jersey</h1>
+                <a href="quoteform.html" class="button">Get Your Free Quote!</a>
+                <div class="call-box" style="width: 156px;">
+                    <a href="tel:6092247185">Call: 609-224-7185</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <div class="contact-form">
+            <div class="contact-title">CONTACT US</div>
+            <div class="contact-details">
+                <p>Phone: XXX-XXX-XXXX</p>
+                <p>Email: contact@yourwebsite.com</p>
+            </div>
+            <form action="submit_contact.php" method="post">
+                <input type="email" class="input-field" name="email" placeholder="Your Email" required />
+                <textarea class="input-field" name="message" placeholder="Message" rows="5" required></textarea>
+                <input type="submit" class="submit-btn" value="Submit" />
+            </form>
+        </div>
+        <div class="social-icons">
+            &nbsp;&nbsp;
+        </div>
+    </div>
+</body>
+
+</html>
