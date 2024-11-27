@@ -199,7 +199,13 @@
                     echo "<td>" . ($row['Drywall'] ? 'X' : '') . "</td>";
                     echo "<td>" . $row['Description'] . "</td>";
                     echo "<td>" . $row['Cost'] . "</td>";
-                    echo "<td><a href='mailto:" . $row['Email'] . "' class='btn'>Email</a></td>";
+                    echo "<td>
+                            <a href='mailto:" . $row['Email'] . "' class='btn'>Email</a>
+                            <form action='mark_finished.php' method='POST' style='display:inline;'>
+                                <input type='hidden' name='AppointmentID' value='" . $row['AppointmentID'] . "'>
+                                <button type='submit' class='btn'>Mark as Finished</button>
+                            </form>
+                          </td>";
                     echo "</tr>";
                 }
             } else {
