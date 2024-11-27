@@ -18,15 +18,16 @@ Picture BLOB,
 constraint REQUEST_PK primary key (RequestID) );
 
 
-CREATE TABLE APPOINTMENT
-(
-AppointmentID varchar(23) not null,
-RequestID varchar(23) not null,
-AppointmentDate DATE not null,
-Cost DECIMAL(8,2) not null,
-Description varchar(4000),
-constraint APPOINTMENT_PK primary key (AppointmentID),
-constraint APPOINTMENT_FK foreign key (RequestID) references REQUEST(RequestID) );
+CREATE TABLE APPOINTMENT(
+AppointmentID VARCHAR(23) NOT NULL,
+RequestID VARCHAR(23) NOT NULL,
+AppointmentDate DATE NOT NULL,
+Cost DECIMAL(8,2) NOT NULL,
+Description VARCHAR(4000),
+Finished BOOLEAN DEFAULT FALSE,
+CONSTRAINT APPOINTMENT_PK PRIMARY KEY (AppointmentID),
+CONSTRAINT APPOINTMENT_FK FOREIGN KEY (RequestID) REFERENCES REQUEST(RequestID)
+);
 
 
 CREATE TABLE REVIEW
