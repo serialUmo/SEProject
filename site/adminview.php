@@ -161,7 +161,7 @@
             ?>
         </table>
 
-        <h2>Appointments</h2>
+        <h2>Unfinished Appointments</h2>
         <table>
             <tr>
                 <th>Date</th>
@@ -179,10 +179,11 @@
 
             <?php
             $sql = "SELECT r.FirstName, r.LastName, r.Location, r.Phone, r.Email, 
-                        r.Powerwashing, r.Painting, r.Drywall,  
-                        a.AppointmentDate, a.Description, a.Cost
+                           r.Powerwashing, r.Painting, r.Drywall,  
+                           a.AppointmentDate, a.Description, a.Cost
                     FROM REQUEST r
-                    JOIN APPOINTMENT a ON r.RequestID = a.RequestID";
+                    JOIN APPOINTMENT a ON r.RequestID = a.RequestID
+                WHERE a.Finished = FALSE";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
