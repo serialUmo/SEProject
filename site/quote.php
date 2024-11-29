@@ -40,15 +40,16 @@ $sanitized_desc = mysqli_real_escape_string($conn, $desc);
 
 
 //Set up SQL query
-$sql = "INSERT INTO REQUEST (RequestID, FirstName, LastName, RequestDate, 
+$stmt = $conn->prepare("INSERT INTO REQUEST (RequestID, FirstName, LastName, RequestDate, 
 	 Phone, Email, Location,
-	 Powerwashing, Painting, Drywall, Description) 
-	VALUES ('$sanitized_id', '$sanitized_fname', '$sanitized_lname', '$sanitized_date',
-			'$sanitized_phone', '$sanitized_email', '$sanitized_address',
-			'$pwsh', '$paint', '$drwl', '$sanitized_desc', $pic)";
+	 Powerwashing, Painting, Drywall, Description, Picture) 
+	VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?)"); 
+
+$stmt->bind_param("sssssssiiisb", $sanitized_id, $sanitized_fname, $sanitized_lname, $sanitized_date, $sanitized_phone, $sanitized_email,
+	$sanitized_address, $pwsh, $paint, $drwl, $sanitized_desc, $pic);
 
 //Run SQL query
-if ($conn->query($sql) === TRUE) {
+if ($stmt->execute() === TRUE) {
  echo "Sign up successfully!";
  //Redirect to this page
  header("location: formcomplete.html");
