@@ -1,3 +1,21 @@
+<?php
+    session_start();
+
+    // Connect to the database
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname = "project";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+?>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -15,16 +33,17 @@
 <body class="body">
     <div class="gallery">
         <div class="gallery-item">
-            <img src="Job1Images\IMG_0588.JPG"> 
-        </div>
-        <div class="gallery-item">
-            <img src="Job1Images\IMG_0589.JPG">
-        </div>
-        <div class="gallery-item">
-            <img src="Job1Images\IMG_0590.JPG">
-        </div>    
-    </div>
+            <?php
+            $query = "SELECT * FROM image ";
+            $result = mysqli_query($conn, $query);
 
-        <br>
-        <br>
-        <p style="align-content: center;"> Description of Job</p>
+            while ($data = mysqli_fetch_assoc($result)) {
+            ?>
+                <img src="./gallimages/<?php echo $data['filename']; ?>">
+
+            <?php
+            }
+            ?>
+        </div>
+          
+    </div>
