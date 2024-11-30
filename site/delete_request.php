@@ -25,11 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['RequestID'])) {
     $requestID = $_POST['RequestID'];
 
     // Delete the request from the database
-    $sql = "DELETE FROM REQUEST WHERE RequestID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $requestID);
+    $sql = "DELETE FROM REQUEST WHERE RequestID = '$requestID'";
 
-    if ($stmt->execute()) {
+    if ($conn->query($sql)) {
         echo "Request deleted successfully.";
         header("Location: adminview.php"); // Redirect back to admin view
         exit();
