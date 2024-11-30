@@ -26,7 +26,14 @@ $pwsh = isset($_POST["powerwash"]) ? 1 : 0;
 $paint = isset($_POST["paint"]) ? 1 : 0;
 $drwl = isset($_POST["drywall"]) ? 1 : 0;
 $desc = $_POST["description"];
-$pic = isset($_POST["img"]) ? $_POST["img"] : NULL;
+$filename = isset($_FILES["img"]["name"]) ? $_FILES["img"]["name"] : NULL;
+$tempname = $_FILES["img"]["tmp_name"];
+$folder = "./custuploadedimg/" . $filename;
+if (!is_null($filename)){
+	move_uploaded_file($tempname, $folder);
+}
+
+
 
 //Sanitize form answers
 $sanitized_id = mysqli_real_escape_string($conn, $id);
@@ -39,14 +46,15 @@ $sanitized_address = mysqli_real_escape_string($conn, $address);
 $sanitized_desc = mysqli_real_escape_string($conn, $desc);
 
 
+
 //Set up SQL query
 $stmt = $conn->prepare("INSERT INTO REQUEST (RequestID, FirstName, LastName, RequestDate, 
 	 Phone, Email, Location,
 	 Powerwashing, Painting, Drywall, Description, Picture) 
 	VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?)"); 
 
-$stmt->bind_param("sssssssiiisb", $sanitized_id, $sanitized_fname, $sanitized_lname, $sanitized_date, $sanitized_phone, $sanitized_email,
-	$sanitized_address, $pwsh, $paint, $drwl, $sanitized_desc, $pic);
+$stmt->bind_param("sssssssiiiss", $sanitized_id, $sanitized_fname, $sanitized_lname, $sanitized_date, $sanitized_phone, $sanitized_email,
+	$sanitized_address, $pwsh, $paint, $drwl, $sanitized_desc, $filename);
 
 //Run SQL query
 if ($stmt->execute() === TRUE) {
