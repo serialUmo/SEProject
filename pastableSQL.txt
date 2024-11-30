@@ -14,7 +14,7 @@ Powerwashing BOOLEAN,
 Painting BOOLEAN,
 Drywall BOOLEAN,
 Description varchar(4000) not null,
-Picture BLOB,
+Picture varchar(100),
 constraint REQUEST_PK primary key (RequestID) );
 
 
