@@ -103,10 +103,23 @@
             color: #dc3545;
             font-weight: bold;
         }
+
+        .adminoptions {
+            text-align: left;
+        }
+
+        .adminpotions a {
+            text-decoration: none;
+            color: #dc3545;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="adminoptions">
+            <a href="adminoptions.php">Admin Options</a>
+        </div>
         <div class="logout">
             <a href="logout.php">Logout</a>
         </div>
