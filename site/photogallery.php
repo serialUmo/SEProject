@@ -117,7 +117,7 @@
     <a href="Aboutus.html"><span>About Us</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="quoteform.html"><span>Get Your Free Quote</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span>609-224-7185</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="photogallery.html"><span>Gallery</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="photogallery.php"><span>Gallery</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="contact.html"><span>Contact Us</span></a>
 </div>
 <body class="body">
@@ -139,3 +139,6 @@
     </div>
 </body>
 </html>
+<?php
+    $conn->close();
+?>
