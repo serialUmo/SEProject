@@ -1,22 +1,281 @@
-<html>
-    <h1>A.L.S Family Contracting</h1>
-<head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <h1 class="h1">A.L.S Family Contracting</h1>
-<div class="navbar">
-    <a class="auto-style16" href="home.html"><span class="auto-style15">Home Page</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a class="auto-style16" href="Aboutus.html"><span class="auto-style15">About Us</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a class="auto-style16" href="quoteform.html"><span class="auto-style15">Get Your Free Quote!</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span class="auto-style15">609-224-7185</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="photogallery.html" class="auto-style16"><span class="auto-style15">Gallery</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="contact.html" class="auto-style16"><span class="auto-style15">Contact Us</span></a>
-</div>
-<body class="body">
-    
-    <p> Click <a href="quoteform.html">here</a> to get a personalized quote </p>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>HomePage</title>
+    <style>
+        body {
+            background-color: #E0F7FA;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .navbar {
+            background-color: #636363;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            color: #007bff;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .overlay-container {
+            position: absolute;
+            top: 40%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column; 
+            gap: 15px; 
+            text-align: center;
+        }
+
+        .text-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 30px; 
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            width: auto;
+        }
+
+        .text-overlay h1 {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .button {
+            margin-top: 15px; 
+            padding: 10px 20px; 
+            background-color: #ff5722; 
+            color: white; 
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-decoration: none; 
+            display: inline-block;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #e64a19; 
+        }
+
+        .call-box {
+            background-color: #ffffff; 
+            color: #000000;
+            padding: 10px 20px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+            width: auto;
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .call-box a {
+            color: #000000;
+            text-decoration: none; 
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .call-box:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .contact-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px; 
+            border: 1px solid black;
+            font-size: 18px;
+        }
+
+        .contact-form {
+            width: 70%; 
+        }
+
+        .contact-title {
+            font-size: 28px; 
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .input-field {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px; 
+            padding: 15px;
+            font-size: 16px; 
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background-color: white;
+            color: black;
+            padding: 15px 30px; 
+            border: 1px solid black;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .submit-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 30%;
+        }
+
+        .social-icons img {
+            width: 50px; 
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .social-icons img:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img alt="Header Logo" height="164" src="./Images/New%20Project%20(9).png" width="948" />
+    </div>
+    <div class="navbar">
+        <span class="auto-style1">
+            <a href="home.html" class="auto-style6"><span class="auto-style4">Home Page</span></a>
+            <a href="aboutus.html" class="auto-style6"><span class="auto-style4">About Us</span></a>
+            <a href="quoteform.html" class="auto-style6"><span class="auto-style4">Get Your Free Quote!</span></a>
+            <a href="photogallery.php" class="auto-style6"><span class="auto-style4">Gallery</span></a>
+            <a href="contact.html" class="auto-style6"><span class="auto-style4">Contact Us</span></a>
+        </span>
+        <span class="auto-style3"><strong>609-224-7185</strong></span>
+    </div>
+    <div class="banner">
+        <img alt="Homepage Banner" src="./Images/Homepage_Image-transformed.png" />
+        <div class="overlay-container">
+            <div class="text-overlay">
+                <h1>The <strong>BEST</strong> Painting and Powerwashing Service in South Jersey</h1>
+                <a href="quoteform.html" class="button">Get Your Free Quote!</a>
+                <div class="call-box" style="width: 156px;">
+                    <a href="tel:6092247185">Call: 609-224-7185</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <div class="social-icons">
+            &nbsp;</div>
+    </div>
+    
+    
+        <!-- Services Section -->
+    <div style="background-color: #f4f4f4; padding: 50px 20px; text-align: center;">
+        <h2 style="font-size: 32px; margin-bottom: 20px; color: #000;">Our Services</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
+            <div style="flex: 1; min-width: 250px; max-width: 300px; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #000;">Painting Services</h3>
+                <p style="font-size: 16px; color: #333;">Interior and exterior painting with precision and quality, tailored to your vision.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; max-width: 300px; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #000;">Power Washing</h3>
+                <p style="font-size: 16px; color: #333;">Restore the beauty of your home with our professional power washing services.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; max-width: 300px; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #000;">Remodeling</h3>
+                <p style="font-size: 16px; color: #333;">Transform your space with expert remodeling solutions tailored to your needs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div style="background-color: #fff; padding: 50px 20px; text-align: center;">
+        <h2 style="font-size: 32px; margin-bottom: 20px; color: #000;">Why Choose A.L.S Family Contracting?</h2>
+        <p style="font-size: 18px; max-width: 800px; margin: 0 auto 30px; color: #555;">We combine 24 years of experience, unmatched craftsmanship, and a commitment to customer satisfaction to bring your vision to life. Our family values and dedication to excellence ensure we deliver top-quality results, every time.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
+            <div style="flex: 1; min-width: 250px; max-width: 300px; text-align: center;">
+                <img alt="" height="216" src="Quality.png" width="196" />
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #000;">Unmatched Quality</h3>
+                <p style="font-size: 16px; color: #333;">We take pride in every detail to ensure top-notch results.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; max-width: 300px; text-align: center;">
+                <img alt="" height="200" src="Gears.png" width="220" />
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #000;">Reliable Service</h3>
+                <p style="font-size: 16px; color: #333;">Dependable, on-time, and dedicated to your satisfaction.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; max-width: 300px; text-align: center;">
+                <img alt="" height="205" src="Family.png" width="216" />
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #000;">Family Values</h3>
+                <p style="font-size: 16px; color: #333;">Built on trust, integrity, and treating every customer like family.</p>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 </html>
