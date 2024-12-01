@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['AppointmentID'])) {
     $sql = "UPDATE APPOINTMENT SET Finished = TRUE WHERE AppointmentID = '$appointmentID'";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: admin_view.php"); // Redirect back to the admin view page
+        header("Location: adminview.php"); // Redirect back to the admin view page
         exit();
     } else {
         echo "Error updating record: " . $conn->error;
