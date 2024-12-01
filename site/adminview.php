@@ -135,13 +135,15 @@
                 <th>Paint</th>
                 <th>D.W</th>
                 <th>Description</th>
+                <th>Images</th>
                 <th>Actions</th>
             </tr>
 
             <?php
             $sql = "SELECT r.RequestID, r.FirstName, r.LastName, r.RequestDate, 
-                        r.Location, r.Phone, r.Email, r.Description, 
-                        r.Powerwashing, r.Painting, r.Drywall
+                    r.Location, r.Phone, r.Email, r.Description, 
+                    r.Powerwashing, r.Painting, r.Drywall, 
+                    r.Picture
                     FROM REQUEST r
                     LEFT JOIN APPOINTMENT a ON r.RequestID = a.RequestID
                     WHERE a.AppointmentID IS NULL;";
@@ -159,6 +161,16 @@
                     echo "<td>" . ($row['Painting'] ? 'X' : '') . "</td>";
                     echo "<td>" . ($row['Drywall'] ? 'X' : '') . "</td>";
                     echo "<td>" . $row['Description'] . "</td>";
+
+                    echo "<td>";
+                        if ($row['Picture']) {
+                            $imagePath = './custuploadedimg/' . $row['Picture']; // Path to image
+                            echo "<img src='" . $imagePath . "' width='100' height='100' />";
+                        } else {
+                            echo "No image";
+                        }
+                    echo "</td>";
+
                     echo "<td>
                             <a href='mailto:" . $row['Email'] . "' class='btn'>Email</a>
                             <form action='take_request.php' method='POST' style='display:inline;'>
