@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['AppointmentID'])) {
         $deleteRequestStmt->execute();
 
         // Redirect back to the admin view page
-        header("Location: admin_view.php");
+        header("Location: adminview.php");
         exit();
     } else {
         echo "Appointment not found.";

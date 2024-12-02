@@ -1,3 +1,53 @@
+<?php
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: adminlogin.html"); // Redirect to login if not logged in
+    exit();
+}
+
+// Connect to the database
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "project";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if AppointmentID is passed via the URL
+if (isset($_GET['AppointmentID'])) {
+    $AppointmentID = $_GET['AppointmentID'];
+
+    // Fetch the current appointment details along with the associated customer details from the REQUEST table
+    $sql = "SELECT a.*, r.FirstName, r.LastName, r.Phone, r.Email, r.Location, 
+                    r.Powerwashing, r.Painting, r.Drywall
+            FROM APPOINTMENT a
+            LEFT JOIN REQUEST r ON a.RequestID = r.RequestID
+            WHERE a.AppointmentID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $AppointmentID); // Bind the AppointmentID parameter
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Fetch the appointment data into an associative array
+        $appointment = $result->fetch_assoc();
+    } else {
+        echo "Appointment not found.";
+        exit;
+    }
+} else {
+    echo "No AppointmentID specified.";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

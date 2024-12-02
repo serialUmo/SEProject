@@ -141,7 +141,7 @@
 
             <?php
             $sql = "SELECT r.RequestID, r.FirstName, r.LastName, r.RequestDate, 
-                    r.Location, r.Phone, r.Email, r.Description, 
+                    r.Location, r.Phone, r.Email, a.Description, 
                     r.Powerwashing, r.Painting, r.Drywall, 
                     r.Picture
                     FROM REQUEST r
@@ -205,7 +205,7 @@
             <?php
             $sql = "SELECT r.FirstName, r.LastName, r.Location, r.Phone, r.Email, 
                            r.Powerwashing, r.Painting, r.Drywall,  
-                           a.AppointmentDate, a.Description, a.Cost
+                           a.AppointmentID, a.AppointmentDate, a.Description, a.Cost
                     FROM REQUEST r
                     JOIN APPOINTMENT a ON r.RequestID = a.RequestID
                 WHERE a.Finished = FALSE";
@@ -226,12 +226,16 @@
                     echo "<td>" . $row['Cost'] . "</td>";
                     echo "<td>
                             <a href='mailto:" . $row['Email'] . "' class='btn'>Email</a>
+                            <form action='edit_appointment.php' method='GET'>
+                                <input type='hidden' name='AppointmentID' value='" . $row['AppointmentID'] . "'>
+                                <button type='submit' class='btn'>Modify Appointment</button>
+                            </form>
                             <form action='mark_finished.php' method='POST' style='display:inline;'>
                                 <input type='hidden' name='AppointmentID' value='" . $row['AppointmentID'] . "'>
                                 <button type='submit' class='btn'>Mark as Finished</button>
                             </form>
-                          </td>";
-                    echo "</tr>";
+                        </td>";
+                echo "</tr>";
                 }
             } else {
                 echo "<tr><td colspan='11'>No appointments found</td></tr>";
