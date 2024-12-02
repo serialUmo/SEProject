@@ -66,7 +66,7 @@ $requestID = $_POST['RequestID'];
             color: #444444;
         }
 
-        input[type="text"] {
+        input[type="text"], input[type="date"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -75,7 +75,7 @@ $requestID = $_POST['RequestID'];
             font-size: 14px;
         }
 
-        input[type="text"]:focus {
+        input[type="text"]:focus, input[type="date"]:focus {
             border-color: #007bff;
             outline: none;
         }
@@ -118,8 +118,8 @@ $requestID = $_POST['RequestID'];
         <form action="save_appointment.php" method="POST">
             <input type="hidden" name="RequestID" value="<?php echo $requestID; ?>">
 
-            <label for="date">Appointment Date (YYYY-MM-DD):</label>
-            <input type="text" name="date" id="date" required>
+            <label for="date">Appointment Date:</label>
+            <input type="date" name="date" id="date" required>
 
             <label for="cost">Cost ($):</label>
             <input type="text" name="cost" id="cost" required>
