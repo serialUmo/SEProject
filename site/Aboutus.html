@@ -38,7 +38,7 @@
             color: #000000;
             font-weight: bold;
             margin: 0 15px;
-            font-size: 16px;
+            font-size: 18px;
             transition: color 0.3s ease;
         }
 
@@ -49,7 +49,7 @@
         .navbar span {
             color: #000000;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .content {
@@ -102,30 +102,32 @@
         }
 
         .footer a {
-            color: #FFD700;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+		color: #FFFF00;
+		text-decoration: none;
+		margin: 0 10px;
+	}
 
         .footer a:hover {
             text-decoration: underline;
+        }
+
+        .auto-style1 {
+            font-size: xx-small;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
+    <div class="header" style="height: 240px">
         <img src="./Images/New%20Project%20(9).png" alt="A.L.S Family Contracting Logo" />
     </div>
 
-    <div class="navbar">
-        <a href="home.html">Home Page</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="quoteform.html">Get Your Free Quote!</a>
-        <a href="photogallery.php">Gallery</a>
-        <a href="contact.html">Contact Us</a>
-        <span><strong>609-224-7185</strong></span>
-    </div>
+    <div class="navbar" style="height: 25px; font-size: 18px">
+    	<a href="home.html" class="auto-style1">Home Page</a>
+		<a href="aboutus.html">About Us</a> <a href="quoteform.html">Get Your Free Quote!</a>
+		<a href="photogallery.php">Gallery</a> <a href="contact.html">Contact Us</a>
+		<strong>609-224-7185</strong>
+</div>
 
     <div class="content">
         <h1>About A.L.S Family Contracting L.L.C</h1>
@@ -166,15 +168,16 @@
         </section>
     </div>
 
-    <div class="footer">
-        <p>
-            Connect With Us:
-            <a href="contact.html">Contact Us</a> |
-            <a href="quoteform.html">Get Your Free Quote!</a> |
-            <a href="serviceAreas.html">Service Areas</a>
-        </p>
-        <p>&copy; 2024 A.L.S Family Contracting L.L.C. All rights reserved.</p>
-    </div>
+    <div class="footer" style="text-align: center; padding: 20px; background-color: #636363; color: #FFFFFF; font-size: 14px;">
+    <p>
+        Connect With Us:
+        <a href="tel:6092247185" style="color: #FFD700; text-decoration: none; margin: 0 10px;">Contact Us</a> |
+        <a href="quoteform.html" style="color: #FFD700; text-decoration: none; margin: 0 10px;">Get Your Free Quote!</a> |
+        <a href="serviceAreas.html" style="color: #FFD700; text-decoration: none; margin: 0 10px;">Service Areas</a>
+    </p>
+    <p>&copy; 2024 A.L.S Family Contracting L.L.C. All rights reserved.</p>
+</div>
+
 </body>
 
 </html>
