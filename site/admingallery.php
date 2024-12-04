@@ -49,163 +49,172 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-<style>
-    iframe {
-        width: 90%;
-        margin: 20px;
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    .container {
-        width: 90%;
-        margin: 20px auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-        text-align: center;
-        color: #333;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
-
-    table, th, td {
-        border: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #f8f9fa;
-        text-align: left;
-        padding: 12px;
-    }
-
-    td {
-        padding: 10px;
-        text-align: left;
-    }
-
-    .btn {
-        display: inline-block;
-        background-color: #007bff;
-        color: #fff;
-        padding: 8px 12px;
-        border: none;
-        border-radius: 4px;
-        text-decoration: none;
-        cursor: pointer;
-        font-size: 14px;
-    }
-
-    .btn:hover {
-        background-color: #0056b3;
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-    }
-
-    .btn-danger:hover {
-        background-color: #c82333;
-    }
-
-    .logout {
-        text-align: right;
-    }
-
-    .logout a {
-        text-decoration: none;
-        color: #dc3545;
-        font-weight: bold;
-    }
-
-    .adminoptions {
-        text-align: left;
-    }
-
-    .adminpotions a {
-        text-decoration: none;
-        color: #dc3545;
-        font-weight: bold;
-    }
-
-</style>
-
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8"> 
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Gallery Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .iframe-container {
+            margin: 20px auto;
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
 <body>
-<div class="adminoptions">
+
+<div class="header">
     <a href="adminoptions.php">Admin Options</a>
-</div>
-<div class="logout">
     <a href="logout.php">Logout</a>
 </div>
 
 <div class="container">
+    <h2>Upload Image</h2>
     <form action="" method="POST" enctype="multipart/form-data">
-    <label for="imgFile">Upload Image</label>
-    <input type="file" id="imgFile" name="newgallimg" accept="image/*">
-    <br>
-    <br>
-    <button type="submit" class="btn"name="upload">Update Gallery</button>
+        <label for="imgFile">Select Image:</label>
+        <input type="file" id="imgFile" name="newgallimg" accept="image/*" required>
+        <button type="submit" class="btn" name="upload">Update Gallery</button>
     </form>
 </div>
 
 <div class="container">
-    <p style="align-text: center">Select photos for removal</p>
+    <h2>Manage Gallery</h2>
+    <p>Select photos to remove:</p>
     <table>
-        <tr>
-            <th>Image Name</tr>
-            <th>Action</th>
-        </tr>
-    
-    <?php
-        $sql = "SELECT * FROM image";
-        $result = $conn->query($sql);
+        <thead>
+            <tr>
+                <th>Image Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $sql = "SELECT * FROM image";
+            $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row['filename'] . "</td>";
-                echo "<td>
-                        <form  method='POST' action=''>
-                            <input type='hidden' name='photo' value='" . $row['filename'] . "';>
-                            <button type='submit' class='btn btn-danger' name='remove'>Remove Photo</button> 
-                        </form>
-                    </td>";
-                echo "</tr>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row['filename']) . "</td>";
+                    echo "<td>
+                            <form method='POST' action=''>
+                                <input type='hidden' name='photo' value='" . htmlspecialchars($row['filename']) . "'>
+                                <button type='submit' class='btn btn-danger' name='remove'>Remove Photo</button>
+                            </form>
+                        </td>";
+                    echo "</tr>";
+                }
             }
-        }
-    ?>
+            ?>
+        </tbody>
     </table>
 </div>
 
-
-<div>
-
-    <iframe src="photogallery.php" title="copyofGallery" style="height: 1200px; width: 1200px">
-
+<div class="iframe-container">
+    <iframe src="photogallery.php" title="Photo Gallery"></iframe>
 </div>
+
 </body>
 </html>
+
 
 <?php
     $conn->close();
