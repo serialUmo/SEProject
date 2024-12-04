@@ -123,7 +123,7 @@
             <a href="aboutus.html" class="auto-style6"><span class="auto-style4">About Us</span></a>
             <a href="quoteform.html" class="auto-style6"><span class="auto-style4">Get Your Free Quote!</span></a>
             <a href="photogallery.php" class="auto-style6"><span class="auto-style4">Gallery</span></a>
-            <a href="contact.html" class="auto-style6"><span class="auto-style4">Contact Us</span></a>
+            <a href="ServiceArea.html" class="auto-style6"><span class="auto-style4">Service Areas</span></a>
         </span>
         <span class="auto-style3"><strong>609-224-7185</strong></span>
     </div>
