@@ -74,6 +74,12 @@
             flex: 1 1 30%;
             max-width: 30%;
             box-sizing: border-box;
+    
+        }
+
+        .gallery-item:hover{
+            transform: scale(1.1);
+            transition: all 0.5s ease;
         }
 
         .gallery-item img {
