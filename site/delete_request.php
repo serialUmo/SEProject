@@ -23,6 +23,10 @@ if ($conn->connect_error) {
 // Check if RequestID is set
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['RequestID'])) {
     $requestID = $_POST['RequestID'];
+    //Get image file name and delete drom directory
+    $photo = "SELECT Picture FROM REQUEST WHERE RequestID = '$requestID'";
+    $photo_path = mysqli_query($conn, $photo);
+    unlink("./custuploadedimg/" . $photopath);
 
     // Delete the request from the database
     $sql = "DELETE FROM REQUEST WHERE RequestID = '$requestID'";
