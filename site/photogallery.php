@@ -19,40 +19,41 @@
 <html>
 <style>
         /* General reset */
-        body, h1, h2, p, a {
+        body {
+            background-color: #E0F7FA;
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Navbar styles */
         .navbar {
-            background-color: #333;
-            overflow: hidden;
+            background-color: #636363;
+            padding: 15px;
             text-align: center;
         }
 
         .navbar a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
             text-decoration: none;
-            font-size: 18px;
+            color: #000000;
+            font-weight: bold;
+            margin: 0 15px;
         }
 
         .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+            color: #007bff;
         }
-
-        .navbar span {
-            display: inline-block;
-            color: white;
-            padding: 14px 20px;
-            font-size: 18px;
-        }
-
         /* Body styles */
         .body {
             background-color: #f4f4f4;
@@ -73,6 +74,12 @@
             flex: 1 1 30%;
             max-width: 30%;
             box-sizing: border-box;
+    
+        }
+
+        .gallery-item:hover{
+            transform: scale(1.1);
+            transition: all 0.5s ease;
         }
 
         .gallery-item img {
@@ -112,25 +119,30 @@
     <meta charset="UTF-8">
     
 </head>
-<div class="navbar">
-    <a href="home.html"><span>Home Page</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="Aboutus.html"><span>About Us</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="quoteform.html"><span>Get Your Free Quote</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span>609-224-7185</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="photogallery.php"><span>Gallery</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="contact.html"><span>Contact Us</span></a>
-</div>
 <body class="body">
+    <div class="header">
+        <img alt="Header Logo" height="164" src="./Images/New%20Project%20(9).png" width="948" />
+    </div>
+    <div class="navbar">
+        <span class="auto-style1">
+            <a href="home.html" class="auto-style6"><span class="auto-style4">Home Page</span></a>
+            <a href="aboutus.html" class="auto-style6"><span class="auto-style4">About Us</span></a>
+            <a href="quoteform.html" class="auto-style6"><span class="auto-style4">Get Your Free Quote!</span></a>
+            <a href="photogallery.php" class="auto-style6"><span class="auto-style4">Gallery</span></a>
+            <a href="ServiceArea.html" class="auto-style6"><span class="auto-style4">Service Areas</span></a>
+        </span>
+        <span class="auto-style3"><strong>609-224-7185</strong></span>
+    </div>
     <div class="gallery">
-        <div class="gallery-item">
             <?php
             $query = "SELECT * FROM image ";
             $result = mysqli_query($conn, $query);
 
             while ($data = mysqli_fetch_assoc($result)) {
             ?>
+            <div class="gallery-item">
                 <img src="./gallimages/<?php echo $data['filename']; ?>">
-
+            </div>
             <?php
             }
             ?>
